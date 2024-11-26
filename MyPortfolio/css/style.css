@@ -149,7 +149,8 @@ section.active {
 }
 
 .home-detail h1 {
-    font-size: clamp (3.5rem, 10vw, 5.5rem);
+    /*font-size: clamp (3.5rem, 10vw, 5.5rem); */
+    font-size: 40px;
 }
 
 .home-detail h2 {
@@ -253,9 +254,9 @@ section.active {
     position: relative;
     width: 32vw;
     height: 32vw;
-    border-radius: 60%;
+    border-radius: 70%;
     padding: .5rem;
-    display: flex;
+    display:-ms-inline-flexbox;
     justify-content: center;
     align-items: center;
     overflow: hidden;    
@@ -297,9 +298,10 @@ section.active {
 
 .home-img .img-box .img-item img {
     position:absolute;
-    top: 3rem;
+    top: -1rem;
     display: block;
-    width: 85%;
+    width: 130%;
+    padding-right: 40px;
     object-fit: cover;
     mix-blend-mode: lighten;    
 }
@@ -322,7 +324,7 @@ section.active {
 
 .services-container .services-box {
     padding: 3rem 2.5rem;
-    background-color: rgb(94, 117, 117);
+    background-color: rgb(52, 65, 65);
     border: .2rem solid ;
     border-radius: 1rem;
     transition: .5s;
@@ -357,7 +359,7 @@ section.active {
 }
 
 .services-box:hover .icon a {
-    background-color: #7cf03d;
+    background-color: #f0f03d;
 }
 
 .services-box .icon a i {
@@ -377,7 +379,7 @@ section.active {
 }
 
 .services-box:hover h3 {
-    color: #7cf03d;
+    color: #f0f03d;
 }
 
 .services-box p {
@@ -416,8 +418,8 @@ section.active {
 }
 
 .resume-box .resume-btn.active {
-    border-color:#7cf03d;
-    color: #7cf03d;
+    border-color:#dada30;
+    color: #eaf03d;
 }
 
 .resume-detail {
@@ -451,11 +453,11 @@ section.active {
 }
 
 .resume-list:hover::-webkit-scrollbar-thumb {
-    background-color: #7cf03d;
+    background-color: #e4f03d;
 }
 
 .resume-list .resume-item {
-    background:rgb(94, 117, 117);
+    background:rgb(49, 61, 61);
     border-radius: .8rem;
     padding: 3rem 2.5rem;
     height: calc((45rem - 2rem)/2);
@@ -465,7 +467,7 @@ section.active {
 }
 
 .resume-item .year {
-    color: #7cf03d;
+    color: #e7f03d;
 }
 
 .resume-item h3 {
@@ -484,7 +486,7 @@ section.active {
     top: 50%;
     transform: translateY(-50%);
     padding: .5rem;
-    background: #7cf03d;
+    background: #def03d;
     border-radius: 60%;
     margin-left: -2rem;
 }
@@ -507,7 +509,7 @@ section.active {
 }
 
 .resume-detail.skills .resume-item:hover i {
-    color: #7cf03d;
+    color: #e4f03d;
 }
 
 .resume-detail.skills .resume-item span {
@@ -542,7 +544,7 @@ section.active {
 }
 
 .resume-detail.about .resume-item p {
-    color: #7cf03d;
+    color: #eaf03d;
 }
 
 .resume-detail.about .resume-item p span {
@@ -583,7 +585,7 @@ section.active {
 
 .portfolio-box .tech {
     margin: 2rem 0;
-    color: #7cf03d;
+    color: #edf03d;
     border-bottom: 1rem solid var(--white-color);
     padding-bottom: 2rem;
 }
@@ -595,7 +597,7 @@ section.active {
     font-size: 3rem;
     color:#fff;
     border-radius: 50%;
-    background:#323946;
+    background:#245dc8;
     transition: .5s;
 }
 
@@ -673,7 +675,7 @@ section.active {
     border: .2rem solid var(--main-color);
     border-radius: .6rem;
     font-size: 4rem;
-    color: #7cf03d;
+    color: #eaf03d;
     cursor: pointer;
 }
 
@@ -717,7 +719,7 @@ section.active {
 .contact-detail i {
     display:inline-flex;
     background-color: #323946;
-    color:#7cf03d;
+    color:#edf03d;
     font-size: 3rem;
     padding: 1.2rem;
     border-radius: .6rem;
@@ -725,7 +727,7 @@ section.active {
 }
 
 .contact-detail .detail p:first-child {
-    color:#7cf03d;
+    color:#f0f03d;
 }
 
 .contact-box form {
