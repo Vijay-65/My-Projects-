@@ -436,11 +436,14 @@ section.active {
 }
 
 .resume-list {
-    display: grid;
+    /* display: grid; */
+    /* justify-content: space-around; */
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 2rem;
+    /* gap: 2rem; */
     height: 45rem;
     overflow:auto;
+    padding: 2px;
+    
 }
 
 .resume-list::-webkit-scrollbar {
@@ -458,13 +461,21 @@ section.active {
 
 .resume-list .resume-item {
     background:rgb(49, 61, 61);
-    border-radius: .8rem;
-    padding: 3rem 2.5rem;
-    height: calc((45rem - 2rem)/2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: 3.5rem;
+    padding: 2rem 3rem;
+    /* height: calc((45rem - 2rem)/2); */
+    height:fit-content;
+    /* display:inline-flex; */
+    margin: 10px;
+    flex-direction:column;
+    justify-content:center;
 }
+
+.resume-list .resume-item #re1 {
+    display: block;
+}
+
+
 
 .resume-item .year {
     color: #e7f03d;
@@ -492,19 +503,27 @@ section.active {
 }
 
 .resume-detail.skills .resume-list {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, .1fr)); 
     height: auto;
     overflow: visible;
+    display:grid;
+    padding: 30px;
+    margin: 0px;
+    grid-area: auto;
+    
+    
 }
 
 .resume-detail.skills .resume-item {
     position: relative;
-    align-items: center;
+    align-items:center;
     height: auto;
+    
+
 }
 
 .resume-detail.skills .resume-item i {
-    font-size: 8.5rem;
+    font-size: 6.5rem;
     transition: .5s;
 }
 
