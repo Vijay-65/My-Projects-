@@ -15,7 +15,7 @@
     --second-bg-color: ☐ #15459e;
     --main-color: #e5e108;
     --white-color: #fff;
-    --disabled-color: ☐ #fff3;
+    --disabled-color: ☐ rgba(141, 8, 8, 0.2);
 }
     
 html {
@@ -407,7 +407,7 @@ section.active {
 .resume-box .resume-btn {
     width: 100%;
     height: 5.3rem;
-    background-color: #323946;
+    background-color: #262b34;
     border: .2rem solid var(--second-bg-color);
     font-size: 1.6rem;
     color:#fff;
@@ -460,7 +460,7 @@ section.active {
 }
 
 .resume-list .resume-item {
-    background:rgb(49, 61, 61);
+    background:#262b34;
     border-radius: 3.5rem;
     padding: 2rem 3rem;
     /* height: calc((45rem - 2rem)/2); */
@@ -616,7 +616,7 @@ section.active {
     font-size: 3rem;
     color:#fff;
     border-radius: 50%;
-    background:#245dc8;
+    background:#132e42;
     transition: .5s;
 }
 
@@ -643,7 +643,7 @@ section.active {
     border-radius: .6rem;
     pointer-events: none;
     background: var(--white-color);
-    color: #323946;
+    color: #313742;
     opacity: 0;
     transition: .2s;
 }
@@ -699,7 +699,7 @@ section.active {
 }
 
 .portfolio-box .navigation button.disabled {
-    border-color: #323946;
+    border-color: #292e37;
     color: var(--disabled-color);
 }
 
@@ -711,6 +711,7 @@ section.active {
     display: inline-grid;
     grid-template-columns: 1fr 1.3fr;
     gap: 3rem;
+    
 }
 
 .contact-container .contact-box:first-child {
@@ -737,7 +738,7 @@ section.active {
 
 .contact-detail i {
     display:inline-flex;
-    background-color: #323946;
+    background-color: #2c323d;
     color:#edf03d;
     font-size: 3rem;
     padding: 1.2rem;
