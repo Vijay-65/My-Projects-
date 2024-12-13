@@ -95,19 +95,19 @@ nav a.active {
 
 @keyframes hide-bars {
     100% {
-        transform: translateY(100%);
+        transform: translateY(-100%);
     }
 
     0% {
-        transform: translateY(0%);
+        transform: translateY(0);
     }
 }
 
-
+ 
 .bars-box.active .bar {
     animation: show-bars .5s ease-in-out both;
     animation-delay: calc(.1s * var(--i)); /* here .1s */
-}
+} 
 
 @keyframes show-bars {
     0% {
@@ -405,21 +405,23 @@ section.active {
 }
 
 .resume-box .resume-btn {
-    width: 100%;
+    width: 70%;
     height: 5.3rem;
     background-color: #262b34;
-    border: .2rem solid var(--second-bg-color);
+    border: .2rem solid ;
+    border-color: #2c323d;
     font-size: 1.6rem;
     color:#fff;
     font-weight: 500;
     margin-bottom: 2rem;
-    border-radius: .8rem;
+    border-radius: 1.8rem;
     cursor: pointer;
+    margin-left: 40px;
 }
 
 .resume-box .resume-btn.active {
-    border-color:#dada30;
-    color: #eaf03d;
+    border-color:#b0b06f;
+    color: #dfe61d;
 }
 
 .resume-detail {
@@ -473,6 +475,7 @@ section.active {
 
 .resume-list .resume-item #re1 {
     display: block;
+    
 }
 
 
@@ -553,7 +556,27 @@ section.active {
 
 .resume-detail.about .resume-list {
     height: auto;
+    /* background-color: cadetblue; */
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.listv {
+    display: flex;
+    padding:5px;
+    margin: 40px 40px;
+    gap: 3rem;
+}
+
+.listv .resume-list{
+    border-radius: 20px;
+    
+}
+
+.divider {
+    width: .5px; /* Thickness of the line */
+    height: auto; /* Full height */
+    background-color: #aeaeac; /* Line color */
+    margin: 0 9px;
 }
 
 .resume-detail.about .resume-item {
