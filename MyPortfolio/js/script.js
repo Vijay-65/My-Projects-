@@ -122,3 +122,19 @@ arrowLeft.addEventListener('click', () => {
     activePortfolio();
 });
 
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.star').forEach(star => {
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.animationDelay = `${Math.random() * 5}s`;
+  });
+  
