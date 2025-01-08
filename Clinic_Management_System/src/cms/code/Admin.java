@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Admin {
@@ -34,13 +35,13 @@ public class Admin {
 			String dburl = "jdbc:mysql://localhost:3307/clinic_management_system?user=root&password=root";
 			Connection con = DriverManager.getConnection(dburl);
 			
-			System.out.println("Enter your username: ");
+			System.out.print("Enter your username: ");
 			String username = scn.next();
 
-			System.out.println("Enter your password: ");
+			System.out.print("Enter your password: ");
 			String password = scn.next();
 			
-			System.out.println("Re-enter your password to confirm :");
+			System.out.print("Re-enter your password to confirm :");
 			String repassword = scn.next();
 			
 			if(password.equals(repassword)) {
@@ -67,7 +68,7 @@ public class Admin {
 
 			// STEP 6 : Process the Result..
 			if (rowsInserted > 0) {
-				System.out.println("Admin details inserted successfully!");
+				System.out.println("\nAdmin details inserted successful !");
 			}
 
 			// STEP 7 : Close the Connection..
@@ -79,6 +80,7 @@ public class Admin {
 		{
 			e.printStackTrace();
 		}
+		Admin.admin();
 	}
 
 	    
@@ -98,7 +100,8 @@ public class Admin {
 
 
     public static void adminLogin() {
-        
+    	
+    	boolean login = false;
         try {
             // STEP 1 : Load the Driver.. 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -128,6 +131,7 @@ public class Admin {
             // STEP 5 : Execute Query..
             ResultSet result = psmt.executeQuery(); // Execute the PreparedStatement
             
+            
             // STEP 6 : Process the Result..
             if(!result.next()) {
             	 Admin.InsertAdminDetails();
@@ -138,14 +142,11 @@ public class Admin {
             		String storedUsername = result.getString("username");
             		String storedPassword = result.getString("password");
                 
-            		if(!storedUsername.equals(username) || !storedPassword.equals(encryptedPassword)){
-            			System.out.println("\nIncorrect username or password !!");
-            			Admin.retry();
-            		}
-            		else { //( storedPassword.equals(encryptedPassword)) {
+            		if ( storedPassword.equals(encryptedPassword) && storedUsername.equals(username)) {
             			System.out.println("\n--- Login Successful ! ---");
-            			Admin.admin(); 
-            		}  
+            			login = true;
+            			break;
+            		} 
             	}while (result.next());
             
             }
@@ -156,6 +157,13 @@ public class Admin {
         }  
          catch(SQLException | ClassNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
+        }
+        if(login) {
+        	Admin.admin();
+        }
+        else {
+        	System.out.println("Incorrect Username or password !!");
+        	Admin.retry();
         }
     }
     
@@ -180,8 +188,11 @@ public class Admin {
     	if(ch=='Y' || ch =='y') {
     		System.out.println("\n -- Logout Successful --\n\n\n\t\t\t************ THANKYOU !! ************");
     	}
-    	else {
+    	else if(ch=='N' || ch=='n') {
     		Admin.admin();
+    	}else {
+    		System.out.println("Incorrect Input ! Try again ");
+    		Admin.adminLogout();
     	}
     	
     }
@@ -189,8 +200,23 @@ public class Admin {
     
     public static void admin() {
     	
-    	System.out.println("1.GOTO APP \n2.ADD ADMIN \n3.VIEW ADMIN\n4.DELETE ADMIN\n5.LOGOUT\n\nEnter your choice :");
-    	int ch = scn.nextInt();
+    	int ch=0;
+    	System.out.println("\n*************** HOME **************");
+    	System.out.println("\n1.GOTO APP \n2.ADD ADMIN \n3.VIEW ADMIN\n4.DELETE ADMIN\n5.LOGOUT\n\nEnter your choice :");
+    	try {
+    	ch = scn.nextInt();
+    	}
+    	catch(InputMismatchException e) {
+    		System.out.println("Input Mismatch ! Kindly enter only Integer choice.");
+    		//System.out.println("\nTry Again (Y/N) :");
+    		char ch1  = scn.next().charAt(0);
+    		if(ch1=='y' || ch1=='Y') {
+    			Admin.admin();
+    		}else {
+    			System.out.println("\nplease select any one choice.. \n ");
+    			Admin.admin();
+    		}
+    	}
     	switch(ch) {
     	case 1 : Access.adminAccess(); break;
     	case 2 : Admin.InsertAdminDetails(); break;
@@ -278,16 +304,21 @@ public class Admin {
 			if(c=='Y' || c=='y') {
 				
 				// STEP 5 : Execute Query..
-				 result = psmt.executeUpdate(); // here want to pass query.. 
+				result = psmt.executeUpdate(); 
+				if(result==1) {// STEP 6 : Process the Result..
+				System.out.println("\n Admin deleted Sucessfull !!");
+				}
 			}
-			else {
+			else if(c=='N' || c=='n'){
 				System.out.println("\nDeletion cancelled !!");
 			}
+			else {
+				System.out.println(" Invalid choice ! ");
 			
-			// STEP 6 : Process the Result..
-			if(result==1) {
-				System.out.println("\n Admin deleted Sucessfull !!");
 			}
+			
+			
+			
 				
 			// STEP 7 : Close the Connection..
 			psmt.close();
