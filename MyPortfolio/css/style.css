@@ -353,8 +353,8 @@ section.active {
 
 .home-img .img-box .img-item {
     position: relative;
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     background: var(--bg-color);
     border-radius: 50%;
     border: .01rem solid var(--bg-color);
@@ -362,15 +362,15 @@ section.active {
     justify-content: center;
     z-index: 1;
     overflow: hidden;    
-    margin: 60px;
+    margin: 83px;
 }
 
 .home-img .img-box .img-item img {
     position:absolute;
-    top: -1rem;
+    top: -5rem;
     display: block;
-    width: 130%;
-    padding-right: 40px;
+    width: 100%;
+    padding-right: 0px;
     object-fit: cover;
     mix-blend-mode: lighten;    
 }
