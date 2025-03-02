@@ -25,7 +25,7 @@ const activePage = () => {
     barsBox.classList.remove('active');
     setTimeout(() => {
         barsBox.classList.add('active');
-    },1100);
+    }, 1100);
 
     sections.forEach(section => {
         section.classList.remove('active');
@@ -64,7 +64,7 @@ logoLink.addEventListener('click', () => {
 
 const resumeBtns = document.querySelectorAll('.resume-btn');
 
-resumeBtns.forEach((btn,idx) => {
+resumeBtns.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
         const resumeDetails = document.querySelectorAll('.resume-detail');
 
@@ -123,18 +123,7 @@ arrowLeft.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 document.querySelectorAll('.star').forEach(star => {
     star.style.left = `${Math.random() * 100}%`;
     star.style.animationDelay = `${Math.random() * 5}s`;
-  });
-  
+});
