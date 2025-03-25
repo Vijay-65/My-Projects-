@@ -379,7 +379,8 @@ section.active {
 
 .home-img .img-box .img-item img {
     position: absolute;
-    top: -5rem;
+    top: 0rem;
+    /* To Align the Profile photo start's from -1, -2rem .. etc */
     display: block;
     width: 100%;
     padding-right: 0px;
